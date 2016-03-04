@@ -254,8 +254,8 @@ class TeraWurfl{
 	 * @param Array Request object ($_SERVER contains this data)
 	 * @return Bool Match
 	 */
-	public function getDeviceCapabilitiesFromRequest($server){
-		if(!isset($server))$server = $_SERVER;
+	public function getDeviceCapabilitiesFromRequest($server=null){
+		if(is_null($server))$server = $_SERVER;
 		return $this->getDeviceCapabilitiesFromAgent(WurflSupport::getUserAgent($server),WurflSupport::getAcceptHeader($server));
 	}
 	/**

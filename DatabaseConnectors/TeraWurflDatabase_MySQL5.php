@@ -372,7 +372,7 @@ ORDER BY parent.`rt`",
 		$ua = $this->SQLPrep($userAgent);
 		$packed_device = $this->SQLPrep(serialize($device));
 		$this->numQueries++;
-		if(!$this->dbcon->query("INSERT DELAYED INTO `$tablename` (`user_agent`,`cache_data`) VALUES ($ua,$packed_device)")) throw new Exception("Error: ".$this->dbcon->error);
+		if(!$this->dbcon->query("INSERT INTO `$tablename` (`user_agent`,`cache_data`) VALUES ($ua,$packed_device)")) throw new Exception("Error: ".$this->dbcon->error);
 		if($this->dbcon->affected_rows > 0){
 			return true;
 		}
